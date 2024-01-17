@@ -69,5 +69,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @EntityGraph(attributePaths = ("team")) // entitygraph를 쓰면 fetchjoin을 편리하게 할 수 있다.
     List<Member> findEntityGraphByUsername(@Param("username") String username);
 
-    
+    <T>List<T> findProjectionsByUsername(@Param("username") String username, Class<T> type);
 }
